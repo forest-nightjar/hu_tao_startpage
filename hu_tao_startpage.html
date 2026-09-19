@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>rawr xd</title>
+
+    <link rel="stylesheet" href="hu_tao_startpage.css">
+</head>
+
+<!-- FLOWERS -->
+<div id="flower-rain"></div>
+
+<script>
+const flowerRain = document.getElementById("flower-rain");
+
+const flowers = ["✿","❀","✾","✽","❁"];
+
+function createFlower() {
+    const flower = document.createElement("div");
+
+    flower.className = "flower";
+    flower.textContent =
+        flowers[Math.floor(Math.random() * flowers.length)];
+
+    flower.style.left = Math.random() * 100 + "vw";
+
+    const size = 14 + Math.random() * 18;
+    flower.style.fontSize = size + "px";
+
+    const duration = 5 + Math.random() * 8;
+    flower.style.animationDuration = duration + "s";
+
+    flower.style.opacity = Math.random() * 0.5;
+
+    flowerRain.appendChild(flower);
+
+    setTimeout(() => {
+        flower.remove();
+    }, duration * 1000);
+}
+
+setInterval(createFlower, 250);
+</script>
+
+<body>
+
+    <main class="page">
+
+        <!-- LEFT: IMAGE -->
+        <section class="left">
+            <div class="image-container">
+                <img src="hu_tao_comm.png">
+            </div>
+        </section>
+
+        <!-- RIGHT -->
+        <section class="right">
+
+            <!-- TOP RIGHT: SEARCH -->
+            <div class="search-section">
+                <div class="search">
+                    <form action="https://www.google.com/search" method="GET">
+                        <input type="text" name="q" placeholder="Search..." autocomplete="off" autofocus>
+
+                        <button type="submit">↵</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM RIGHT: LINKS -->
+            <div class="links-section">
+                <nav class="links">
+
+                    <a href="https://catfishing.net/">
+                        catfishing
+                        <span>the wikipedia guessing game</span>
+                    </a>
+
+                    <a href="https://maptap.gg">
+                        maptap
+                        <span>the daily geography game</span>
+                    </a>
+
+                    <a href="https://www.nytimes.com/games/wordle/index.html">
+                        wordle
+                        <span>the nytimes word game</span>
+                    </a>
+
+                    <a href="https://costcodle.com/">
+                        costcodle
+                        <span>the costco price guessing game</span>
+                    </a>
+
+                    <a href="https://krillion.io/">
+                        krillion
+                        <span>the daily dive game</span>
+                    </a>
+
+                    <a href="https://urbanstats.org/quiz.html">
+                        juxtastat
+                        <span>the urbanist game</span>
+                    </a>
+
+                    <a href="https://kindahardgolf.com/">
+                        kinda hard golf
+                        <span>the challenging golf game</span>
+                    </a>
+
+                </nav>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

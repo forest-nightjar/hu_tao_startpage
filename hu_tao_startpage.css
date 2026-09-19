@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #1f1f1f;
+    --fg: #f1f1f1;
+    --muted: #888;
+    --border: #292929;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Left */
+
+.left {
+    flex: 0 0 auto;
+    height: 100vh;
+}
+
+.image-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+/* Right */
+
+.right {
+    flex: 1;
+    min-width: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-section,
+.links-section {
+    width: 100%;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.search,
+.links {
+    width: 100%;
+    max-width: 650px;
+}
+
+/* Search */
+
+.search form {
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+.search form::before {
+    content: "> ";
+    color: var(--fg);
+    font-size: 45px;
+}
+
+.search input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 8px 0 8px 20px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: var(--fg);
+
+    font-family: "Courier New", monospace;
+    font-size: 45px;
+}
+
+.search input::placeholder {
+    color: var(--muted);
+}
+
+.search form button {
+    display: none;
+}
+
+/* Links */
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    border: none;
+    background: transparent;
+}
+
+.links a {
+    padding: 8px 0;
+
+    background: transparent;
+    color: var(--fg);
+
+    font-family: "Courier New", monospace;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.links a::before {
+    content: "→ ";
+    color: var(--muted);
+}
+
+.links a span {
+    display: inline;
+    margin-left: 8px;
+
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.links a:hover {
+    background: transparent;
+    color: var(--fg);
+}
+
+.links a:hover::before {
+    color: var(--fg);
+}
+
+.links a:hover span {
+    color: var(--muted);
+}
+
+/* Flowers */
+
+#flower-rain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.flower {
+    position: absolute;
+    top: -50px;
+
+    color: var(--fg);
+    font-family: "Courier New", monospace;
+    font-size: 22px;
+    line-height: 1;
+
+    white-space: pre;
+    opacity: 0.7;
+
+    animation: flower-fall linear forwards;
+}
+
+@keyframes flower-fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(calc(100vh + 100px)) rotate(360deg);
+        opacity: 0;
+    }
+}
